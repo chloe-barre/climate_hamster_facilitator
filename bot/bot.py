@@ -602,8 +602,8 @@ async def factcheck_handle(update: Update, context: CallbackContext):
     await register_user_if_not_exists(update, context, update.message.from_user)
     user_id = update.message.from_user.id
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
-
-    await update.message.reply_text("<i>This is FALSE !.</i>", parse_mode=ParseMode.HTML)
+    reply = rag.generate_factcheck(update.message.text)
+    await update.message.reply_text(reply)#, parse_mode=ParseMode.HTML)
 
 
 def get_chat_mode_menu(page_index: int):
