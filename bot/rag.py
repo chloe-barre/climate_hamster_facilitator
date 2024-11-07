@@ -16,6 +16,7 @@ pinecone_index = pc.Index(index_name)
 model_name = "BAAI/bge-m3"
 encode_kwargs = {'normalize_embeddings': True,"show_progress_bar":False} # set True to compute cosine similarity
 print("Loading embeddings model: ", model_name)
+query_instruction = "Represent this sentence for searching relevant passages: "
 embeddings_function = HuggingFaceBgeEmbeddings(
     model_name=model_name,
     encode_kwargs=encode_kwargs,
