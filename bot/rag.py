@@ -1,17 +1,17 @@
 import os
 import openai
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.llms import OpenAI
+ from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.llms import OpenAI
 from langchain.vectorstores import Pinecone
-import pinecone
+from pinecone import Pinecone
 
 # Set up OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize Pinecone index
-pinecone.init(api_key=os.getenv("PINECONE_API_KEY"))
+pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index_name = "factcheck-local"
-pinecone_index = pinecone.Index(index_name)
+pinecone_index = pc.Index(index_name)
 
 model_name = "BAAI/bge-m3"
 encode_kwargs = {'normalize_embeddings': True,"show_progress_bar":False} # set True to compute cosine similarity
