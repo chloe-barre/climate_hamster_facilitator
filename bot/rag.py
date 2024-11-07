@@ -1,6 +1,6 @@
 import os
 import openai
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.llms import OpenAI
 from langchain.vectorstores import Pinecone
 from pinecone import Pinecone
