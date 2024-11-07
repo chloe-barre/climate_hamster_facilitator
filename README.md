@@ -55,6 +55,7 @@ You can deploy your own bot, or use mine: [@chatgpt_karfly_bot](https://t.me/cha
 ## Bot commands
 - `/retry` – Regenerate last bot answer
 - `/new` – Start new dialog
+- `/factcheck` – Factcheck the last message
 - `/mode` – Select chat mode
 - `/balance` – Show balance
 - `/settings` – Show settings
