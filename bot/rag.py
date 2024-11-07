@@ -9,7 +9,7 @@ from pinecone import Pinecone
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize Pinecone index
-pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+pc = Pinecone(api_key="pcsk_6vKoPN_29eWAQfJpnxi7X8ZMsPYhKmuzeGTknYZVzrJqTLoBNQWg16dZnamobd16E71FwS")
 index_name = "factcheck-local"
 pinecone_index = pc.Index(index_name)
 
