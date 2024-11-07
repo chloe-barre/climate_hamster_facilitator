@@ -36,6 +36,7 @@ import base64
 # setup
 db = database.Database()
 logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 user_semaphores = {}
 user_tasks = {}
@@ -71,6 +72,7 @@ def split_text_into_chunks(text, chunk_size):
 
 
 async def register_user_if_not_exists(update: Update, context: CallbackContext, user: User):
+    logger.info("register_user_if_not_exists")
     if not db.check_if_user_exists(user.id):
         db.add_new_user(
             user.id,
@@ -111,7 +113,8 @@ async def register_user_if_not_exists(update: Update, context: CallbackContext, 
 
 
 async def is_bot_mentioned(update: Update, context: CallbackContext):
-     try:
+    logger.warning("is_bot_mentioned")
+    try:
          message = update.message
 
          if message.chat.type == "private":
@@ -123,9 +126,11 @@ async def is_bot_mentioned(update: Update, context: CallbackContext):
          if message.reply_to_message is not None:
              if message.reply_to_message.from_user.id == context.bot.id:
                  return True
-     except:
+    except:
+         logger.warning("is_bot_mentioned true")
          return True
-     else:
+    else:
+         logger.warning("is_bot_mentioned false")
          return False
 
 
@@ -335,6 +340,11 @@ async def unsupport_message_handle(update: Update, context: CallbackContext, mes
     return
 
 async def message_handle(update: Update, context: CallbackContext, message=None, use_new_dialog_timeout=True):
+    logger.warning("message")
+    logger.warning(message)
+    logger.warning("update")
+    logger.warning(update)
+
     # check if bot was mentioned (for group chats)
     if not await is_bot_mentioned(update, context):
         return
