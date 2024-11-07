@@ -6,6 +6,7 @@ import html
 import json
 from datetime import datetime
 import openai
+import rag
 
 import telegram
 from telegram import (

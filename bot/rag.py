@@ -37,7 +37,7 @@ system_prompt = (
     "Context: {context}"
 )
 
-async def generate_prompt(query: str):
+async def generate_factcheck(query: str):
     prompt = ChatPromptTemplate.from_messages(
         [
             ("system", system_prompt),
