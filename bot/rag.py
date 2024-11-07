@@ -1,7 +1,5 @@
 import os
 import openai
-from langchain.agents import create_openai_agent
-from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import OpenAI
 from langchain.vectorstores import Pinecone
